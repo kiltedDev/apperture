@@ -1,11 +1,11 @@
-import AllRobots from './AllRobots/AllRobots.view';
 import './App.css';
+import Router from './router';
 
 function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <AllRobots />
+        <Router />
       </header>
     </div>
   );
