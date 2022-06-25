@@ -1,8 +1,7 @@
-import { Grid, ImageList, ImageListItem, ImageListItemBar } from '@mui/material'
+import { ImageList, ImageListItem, ImageListItemBar } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { getRobots } from '../robots.api'
 import { Robot } from '../types'
-import RobotCard from './RobotCard.component'
 
 export interface IAllRobot {
 
