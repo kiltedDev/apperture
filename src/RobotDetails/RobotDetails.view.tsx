@@ -1,13 +1,14 @@
 import { Avatar, Card, CardContent, CardHeader, CardMedia, Grid, IconButton,  Skeleton, Typography } from '@mui/material'
 import { DeleteForever } from '@mui/icons-material'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { getRobots } from '../robots.api'
+import { useNavigate, useParams } from 'react-router-dom'
+import { deleteRobot, getRobots } from '../robots.api'
 import { Robot } from '../types'
 
 export const RobotDetails = () => {
   const { robotId } = useParams();
   const [thisRobot, setThisRobot] = useState<Robot|undefined>(undefined);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const robots = getRobots();
@@ -15,6 +16,17 @@ export const RobotDetails = () => {
   }, [robotId])
     
   if (!thisRobot) return <Skeleton animation="wave" variant="rectangular" width={450} height={250} />
+
+  const handleRobotDelete = async () => {
+    try {
+      await deleteRobot(thisRobot.id)
+      console.log('deleted')
+      
+      navigate('/')
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <Card>
@@ -42,7 +54,7 @@ export const RobotDetails = () => {
             <Typography>{`Defense: ${thisRobot.defense}`}</Typography>
           </Grid>
           <Grid item xs={2}>
-            <IconButton >
+            <IconButton onClick={handleRobotDelete} >
               <DeleteForever sx={{fontSize: 40 }} color="error" />
             </IconButton>
           </Grid>

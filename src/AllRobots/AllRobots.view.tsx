@@ -19,8 +19,8 @@ export const AllRobots = (props: IAllRobot) => {
   return (
     <ImageList variant="woven" cols={4} gap={8}>
       {robots.map((robot) => (
-        <Link to={`robot/${robot.id}`}>
-          <ImageListItem key={robot.id} sx={{backgroundColor: 'white'}}>
+        <Link to={`robot/${robot.id}`} key={robot.id}>
+          <ImageListItem  sx={{backgroundColor: 'white'}}>
             <img
               alt={`${robot.color} robot named ${robot.name}`}
               src={`https://robohash.org/${robot.id}?size=200x200`}
@@ -32,8 +32,8 @@ export const AllRobots = (props: IAllRobot) => {
           </ImageListItem>
         </Link>
       ))}
-      <Link to="robot/new">
-        <ImageListItem key="new-robot" sx={{bgcolor: 'white'}}>
+      <Link to="robot/new" key="new-robot" >
+        <ImageListItem sx={{bgcolor: 'white'}}>
           <Box sx={{height: '200px', width: '200px'}}>
             <Typography variant="h1">?</Typography>
           </Box>
