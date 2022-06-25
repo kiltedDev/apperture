@@ -1,0 +1,37 @@
+[
+    {
+        "id": "e6163f17-3694-4edb-bb6f-c94d36ff9009",
+        "name": "Skywaves",
+        "color": "pink",
+        "attack": 4,
+        "defense": 6
+    },
+    {
+        "id": "53ee5511-9db9-4512-8aa5-81f3cfb6711b",
+        "name": "Lance",
+        "color": "green",
+        "attack": 7,
+        "defense": 3
+    },
+    {
+        "id": "c30d633c-e332-48b1-ae28-484a35d9d06c",
+        "name": "Stan",
+        "color": "grey",
+        "attack": 2,
+        "defense": 8
+    },
+    {
+        "id": "43a153fc-91b0-4f97-a68f-6b9c03d15029",
+        "name": "Strongjaw",
+        "color": "yellow",
+        "attack": 7,
+        "defense": 3
+    },
+    {
+        "id": "86c8e551-b76b-4e5d-926a-4ca7cb055096",
+        "name": "Polyphemus",
+        "color": "Bronze",
+        "attack": 5,
+        "defense": 5
+    }
+]
