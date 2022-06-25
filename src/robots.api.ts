@@ -6,6 +6,11 @@ export function getRobots(): Robot[] {
   return robots
 }
 
+export function deleteRobot(robotId: string): Promise<void> {
+  console.log(`deleted robot with id ${robotId}`)
+  return Promise.resolve()
+}
+
 export function postRobot(newRobot: Omit<Robot, 'id'>): Promise<Robot> {
     const savedRobot = {
       ...newRobot,

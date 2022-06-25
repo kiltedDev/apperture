@@ -1,19 +1,21 @@
-import { Avatar, Card, CardContent, CardHeader, CardMedia, Paper, Skeleton, Typography } from '@mui/material'
+import { Avatar, Card, CardContent, CardHeader, CardMedia, Grid, IconButton,  Skeleton, Typography } from '@mui/material'
+import { DeleteForever } from '@mui/icons-material'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getRobots } from '../robots.api'
 import { Robot } from '../types'
 
 export const RobotDetails = () => {
-  const { robotId } = useParams()
-  const [thisRobot, setThisRobot] = useState<Robot|undefined>(undefined)
+  const { robotId } = useParams();
+  const [thisRobot, setThisRobot] = useState<Robot|undefined>(undefined);
 
   useEffect(() => {
-    const robots = getRobots()
-    setThisRobot(robots.find(robot => robot.id === robotId))
+    const robots = getRobots();
+    setThisRobot(robots.find(robot => robot.id === robotId));
   }, [robotId])
     
   if (!thisRobot) return <Skeleton animation="wave" variant="rectangular" width={450} height={250} />
+
   return (
     <Card>
       <CardHeader
@@ -34,8 +36,17 @@ export const RobotDetails = () => {
         alt={`${thisRobot.color} robot named ${thisRobot.name}`}
       />
       <CardContent>
-        <Typography>{`Attack: ${thisRobot.attack}`}</Typography>
-        <Typography>{`Defense: ${thisRobot.defense}`}</Typography>
+        <Grid container>
+          <Grid item xs={10} alignContent="flex-start">
+            <Typography>{`Attack: ${thisRobot.attack}`}</Typography>
+            <Typography>{`Defense: ${thisRobot.defense}`}</Typography>
+          </Grid>
+          <Grid item xs={2}>
+            <IconButton >
+              <DeleteForever sx={{fontSize: 40 }} color="error" />
+            </IconButton>
+          </Grid>
+        </Grid>
       </CardContent>
     </Card>
   )
